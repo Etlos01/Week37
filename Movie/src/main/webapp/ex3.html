@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Event Bubbling</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .mydiv {
+            width: 25px; 
+            height: 25px;
+            background-color:yellow; 
+            margin:1px;
+        }
+    </style>
+    </head>
+    
+    <body>
+        
+        <h1>Opgave 2</h1>
+        <div id="div1" class="mydiv"> Div1
+            <script>
+                document.getElementById("div1").addEventListener("click", function(){
+                    console.log("Hello from "+ document.getElementById("div1").getAttribute("id"));
+                })
+            </script>
+        </div>
+        <div id="div2" class="mydiv">Div2
+            <script>
+                document.getElementById("div2").addEventListener("click", function(){
+                    console.log("Hello from "+ document.getElementById("div2").getAttribute("id"));
+                })
+            </script>
+        </div>
+                <a href="index.html"><button>Til Forside</button></a>
+
+    </body>
+</html>

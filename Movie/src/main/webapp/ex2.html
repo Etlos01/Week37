@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Button change color</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Opgave 1B</h1>
+        <div id="div1">Div 1</div>
+        <div id="div2">Div 2</div>
+        <div id="div3">Div 3</div>
+        <br>
+
+        <button type="button" id = button01 >Change all colors</button>
+        <button type="button" id = button02 >Change Div 1 color</button>
+        <button type="button" id = button03 >Change Div 2 color</button>
+        <button type="button" id = button04 >Change Div 2 color</button>
+
+        <script>
+        var tagDiv = document.getElementsByTagName("div");
+       
+        document.getElementById("button01").addEventListener("click",function(){
+           
+           for (var i = 0; i < tagDiv.length; i++){
+    
+                tagDiv[i].style.backgroundColor = getRandomColor();
+                }
+        })
+        document.getElementById("button02").addEventListener("click",function(){
+            document.getElementById("div1").style.backgroundColor = getRandomColor();
+        })
+        document.getElementById("button03").addEventListener("click",function(){
+            document.getElementById("div2").style.backgroundColor = getRandomColor();
+        })
+        document.getElementById("button04").addEventListener("click",function(){
+            document.getElementById("div3").style.backgroundColor = getRandomColor();
+        })
+        function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+        
+
+        </script>    
+                <a href="index.html"><button>Til Forside</button></a>
+
+    </body>
+</html>

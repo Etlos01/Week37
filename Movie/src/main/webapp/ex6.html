@@ -1,0 +1,64 @@
+
+<html>
+    <head>
+        <title>Using Map</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+     <body>
+          <h1>Opgave 3</h1>
+          <p id="p"><p> 
+
+          <form>
+          <input type="text" id="fname" name="fname" value="Type a name">
+          <button type="button" id="divButton1">Add name</button>
+          </form>
+          
+          <button type="button" id="divButton2">Remove first</button>
+          <button type="button" id="divButton3">Remove last</button>
+          
+        <script>
+                let myArray = ["Lars","Gitte","Jens","bo"];
+                
+                function addLiToNamesInArray(name){
+                    return "<li>"+name+"</li>"
+                }
+                
+                function createStringWithUl(array){
+                    return "<ul>" + array.join("") + "</ul>"
+                }
+                
+                function addToInnerHtml(){
+                    let newHtmlArray1 = myArray.map(addLiToNamesInArray)
+                    let newArrayAsString1 = createStringWithUl(newHtmlArray1)
+                    document.getElementById("p").innerHTML = newArrayAsString1 ;
+                }
+                
+               
+                let htmlArray = myArray.map(addLiToNamesInArray);
+                
+                let arrayAsString = createStringWithUl(htmlArray);
+                document.getElementById("p").innerHTML = arrayAsString ;
+                
+                document.getElementById("divButton1").addEventListener("click", function (){
+                    let name = document.getElementById("fname");
+                    myArray.push(name.value);
+                    addToInnerHtml();
+                });
+                
+                document.getElementById("divButton2").addEventListener("click", function (){
+                    myArray.shift();
+                    addToInnerHtml();
+                });
+                
+                document.getElementById("divButton3").addEventListener("click", function (){
+                    myArray.pop();
+                    addToInnerHtml();
+                });
+                
+        </script>    
+        <br>
+        <br>
+        <a href="index.html"><button>Til Forside</button></a>
+    </body>
+</html>

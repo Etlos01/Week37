@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Event Bubbling</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .mydiv {
+            width: 25px; 
+            height: 25px;
+            background-color:yellow; 
+            margin:1px;
+        }
+    </style>
+    </head>
+    
+    <body>
+        
+        <h1>Opgave 2c</h1>
+        
+        <div id="outer">
+            <div id="div1" class="mydiv">Div1</div>
+            <div id="div2" class="mydiv">Div2</div>
+            <div id="div3" class="mydiv">Div3</div>
+            <div id="div4" class="mydiv">Div4</div>
+            <div id="div5" class="mydiv">Div5</div>
+            <div id="div6" class="mydiv">Div6</div>
+            <div id="div7" class="mydiv">Div7</div>
+            <div id="div8" class="mydiv">Div8</div>
+            <div id="div9" class="mydiv">Div9</div>
+            <div id="div10" class="mydiv">Div10</div>
+        </div>
+        
+        <p id="para"></p>
+        <script>
+                document.getElementById("outer").addEventListener("click", function (e) {
+                let target = e.target
+                txt = "Hello from: " + target.id
+                document.getElementById("para").innerHTML = txt;
+            })
+        </script> 
+                <a href="index.html"><button>Til Forside</button></a>
+
+    </body>
+</html>

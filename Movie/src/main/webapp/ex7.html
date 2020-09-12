@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+        
+        <title>Filter/Table</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <table id ="table" class="table"></table><br>
+        <form>
+          <input type="text" id="price" name="fname" value="">
+          <button type="button" id="divButton1">Price lower</button>
+        </form>
+        
+        
+        <script>
+            var cars = [
+                        { id: 1, year: 1997, make: 'Ford', model: 'E350', price: 3000 },
+                        { id: 2, year: 1999, make: 'Chevy', model: 'Venture', price: 4900 },
+                        { id: 3, year: 2000, make: 'Chevy', model: 'Venture', price: 5000 },
+                        { id: 4, year: 1996, make: 'Jeep', model: 'Grand Cherokee', price: 4799 },
+                        { id: 5, year: 2005, make: 'Volvo', model: 'V70', price: 44799 }
+                       ];
+            arrayToString(cars);
+            
+            
+            function arrayToString(array){
+                var htmlString = "<thead><tr>"; // start of HTML code
+                var tableHeaderArray = Object.keys(array[0]); // saves key names in array
+
+                for(let i = 0; i <tableHeaderArray.length; i++){
+                    htmlString += "<th>"+tableHeaderArray[i]+"</th>" //adding keys to HTML thead
+                }
+                
+                htmlString += "</tr></thead><tbody>"
+                
+                var bodyArrayJoin = array.map(function(v){
+                    return "<tr><td>"+Object.values(v).join("</td><td>")+"</td></tr>" //adds the tbody html code
+                })
+                
+                htmlString = htmlString + bodyArrayJoin.join("") + "</tbody>"
+                return htmlString
+            }
+            document.getElementById("table").innerHTML = arrayToString(cars);
+
+                document.getElementById("divButton1").addEventListener("click", function (){
+                    var maxPrice = document.getElementById("price");
+                    console.log(maxPrice)
+                    var carsBelowPrice = cars.filter(car => car.price < maxPrice.value)
+                    console.log(carsBelowPrice)
+                    document.getElementById("table").innerHTML = arrayToString(carsBelowPrice)
+                    
+                });            
+            
+            
+            
+        </script>   
+        
+        <br>
+        <br>
+        <a href="index.html"><button>Til Forside</button></a>
+    </body>
+</html>
